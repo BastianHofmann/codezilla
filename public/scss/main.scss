@@ -1,0 +1,84 @@
+body {
+	background: #f7f3f2;
+	font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #3c3c3c;
+	-webkit-font-smoothing: antialiased;
+}
+
+.container {
+	position: relative;
+	width: 960px;
+	margin: 0 auto;
+}
+
+.container:before,
+.container:after {
+	content: "";
+	display: table;
+}
+
+.container:after {
+	clear: both;
+}
+
+.container {
+	zoom: 1;
+}
+
+.content {
+	padding: 40px 0;
+	background-color: white;
+	border-left: 1px solid #d1d1d1;
+	border-right: 1px solid #d1d1d1;
+}
+
+.hidden {
+	display: none;
+}
+
+.sidebar {
+	float: left;
+	display: inline-block;
+	width: 220px;
+}
+
+a,
+a:visited {
+	text-decoration: none;
+	color: #f76044;
+	background: url(../img/dotted.png) bottom left repeat-x;
+}
+
+a:hover {
+	color: #ba2a2a;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #222222;
+	font-weight: bold;
+	margin: 0 20px 10px 20px;
+}
+
+h1 {
+	font-size: 24px;
+	line-height: 36px;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+	padding-bottom: 2px;
+	border-bottom: 1px solid #d1d1d1;
+}
+
+h2 {
+	font-size: 16px;
+	line-height: 26px;
+	margin-bottom: 10px;
+}
+
+p {
+	margin: 0 20px 20px 20px;
+}
+
+ul {
+	padding-left: 20px;
+	list-style: disc;
+}

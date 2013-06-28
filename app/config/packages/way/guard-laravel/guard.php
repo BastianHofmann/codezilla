@@ -60,7 +60,7 @@ return array(
 	| you'd simply add `array('main')` (the extension may be left off).
 	|
 	*/
-	'js_concat' => array('vendor/jquery', 'vendor/underscore', 'vendor/backbone', 'main', 'templates', 'helpers', 'models/task', 'collections/tasks', 'router', 'views/tasks', 'views/task', 'views/createTask', 'views/app'),
+	'js_concat' => array('jquery', 'navigation'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -74,7 +74,7 @@ return array(
 	| you'd simply add `array('buttons')` (the extension may be left off).
 	|
 	*/
-	'css_concat' => array(),// Way\Helpers\File::withoutExtensionsFrom('public/css'),
+	'css_concat' => array('reset', 'main', 'content', 'topnav', 'footer', 'navigation', 'code'),
 
 	/*
 	|--------------------------------------------------------------------------

@@ -44,24 +44,6 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
-Route::filter('auth.api', function()
-{
-	// $token = Request::header('token');
-
-	// if( ! Token::where('key', $token)->count())
-	// {
-	// 	return Response::json(['error' => true, 'status' => 401, 'message' => 'The request is not authorized.'], 401);
-	// }
-});
-
-Route::filter('auth.json', function()
-{
-	if (Auth::guest())
-	{
-		return Response::json(array('error' => true, 'status' => 401, 'message' => 'You are not logged in.'), 401);
-	}
-});
-
 /*
 |--------------------------------------------------------------------------
 | Guest Filter

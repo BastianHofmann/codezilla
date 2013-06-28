@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://pensum.dev',
+	'url' => 'http://localhost',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'OOIow5aLWPmbH904GGXv2xmHC6mhsKNU',
+	'key' => 'HGuVNmAt39AC10jxPC2VjXlrFqvjVX3w',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -113,8 +113,6 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		// 'Way\Generators\GeneratorsServiceProvider',
-		// 'Way\Console\GuardLaravelServiceProvider'
 
 	),
 

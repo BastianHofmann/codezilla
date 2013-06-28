@@ -49,34 +49,4 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
-	/**
-	 * Set the relation to the tasks resource.
-	 *
-	 * @return relation
-	 */
-	public function tasks()
-	{
-		return $this->hasMany('Task');
-	}
-
-	/**
-	 * Set the relation to the collections resource.
-	 *
-	 * @return relation
-	 */
-	public function collections()
-	{
-		return $this->belongsToMany('Collection');
-	}
-
-	/**
-	 * Set the relation to the notifications resource.
-	 *
-	 * @return relation
-	 */
-	public function notifications()
-	{
-		return $this->hasMany('Notification');
-	}
-
 }
