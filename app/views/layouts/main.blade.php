@@ -6,7 +6,7 @@
 		<title>{{ $title }}</title>
 		<meta name="description" content="Handcrafted PHP scripts. Made with love.">
 		<meta name="viewport" content="width=device-width">
-		{{ HTML::style('css/styles.min.css') }}
+		{{ HTML::style('scss/styles.min.css') }}
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-38721672-1']);
