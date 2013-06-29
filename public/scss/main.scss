@@ -26,10 +26,17 @@ body {
 }
 
 .content {
+	width: 738px;
+	float: right;
 	padding: 40px 0;
 	background-color: white;
 	border-left: 1px solid #d1d1d1;
 	border-right: 1px solid #d1d1d1;
+}
+
+.content.full {
+	width: 960px;
+	float: none;
 }
 
 .hidden {
@@ -79,6 +86,7 @@ p {
 }
 
 ul {
+	margin: 0 20px 0 20px;
 	padding-left: 20px;
 	list-style: disc;
 }

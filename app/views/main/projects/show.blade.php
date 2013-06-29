@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('main')
-	<div class="content">
+	<div class="content full">
 		<h1>Pensum</h1>
 		<h2>Features</h2>
 		<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. </p>
