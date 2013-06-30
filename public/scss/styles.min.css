@@ -125,8 +125,7 @@ p {
   margin: 0 20px 20px 20px; }
 
 ul {
-  margin: 0 20px 0 20px;
-  padding-left: 20px;
+  padding-left: 40px;
   list-style: disc; }
 
 .content ul {
