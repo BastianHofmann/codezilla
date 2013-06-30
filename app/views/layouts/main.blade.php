@@ -25,10 +25,7 @@
 			<div class="container">
 				<ul class="navigation">
 					<li>
-						<a href="{{ URL::to('projects') }}" title="Overview for all projects" class="active">Projects</a>
-					</li>
-					<li>
-						<a href="{{ URL::to('docs') }}" title="Overview for all documentations">Documentations</a>
+						<a href="{{ URL::to('docs') }}" title="Overview for all documentations" class="active">Documentations</a>
 					</li>
 				</ul>
 				<a href="{{ URL::to('/') }}" class="main-logo">Codezilla</a>
