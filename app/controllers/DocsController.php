@@ -18,21 +18,23 @@ class DocsController extends BaseController {
 		{
 			$comments = false;
 
-			$markdownFile = 'docs/home';
+			$markdownFile = '/docs/home';
 
 			$title = 'Docs - Codezilla';
 		}
 		else
 		{
-			$file = 'docs/' . $item;
+			$file = '/docs/' . $item;
 
 			$markdownFile = rtrim($file, '/');
 		}
 
 		if ( ! $content = Cache::get(str_replace('/', '_', $markdownFile)))
 		{
-			if ( ! File::isFile(storage_path() . '/' . $markdownFile . '.md'))
+			if ( ! File::isFile(storage_path() . $markdownFile . '.md'))
 			{
+				var_dump(storage_path() . $markdownFile . '.md');
+
 				App::abort(404, 'Page not found');
 			}
 
@@ -44,7 +46,7 @@ class DocsController extends BaseController {
 			}
 		}
 
-		Cache::put(str_replace('/', '_', $markdownFile), $content, 60);
+		// Cache::put(str_replace('/', '_', $markdownFile), $content, 60);
 
 		// Add prettyprint classes to pre tags
 		$content = str_replace('<pre>', '<pre class="prettyprint php">', $content);

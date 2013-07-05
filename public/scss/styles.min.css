@@ -248,6 +248,10 @@ ul {
 .topic-navigation .children li {
   margin: 8px 0; }
 
+code {
+  color: #666;
+  font-family: Menlo, Monaco, "Courier New", monospace; }
+
 pre {
   display: block;
   padding: 8px 15px;
@@ -300,6 +304,6 @@ pre code {
   color: #f3f3f3; }
 
 .prettyprint {
-  padding: 8px 15px;
+  padding: 8px 20px;
   background-color: #272822;
   border: 1px solid #0d0d0c; }

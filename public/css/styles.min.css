@@ -263,6 +263,10 @@ pre code {
   padding: 0;
   background-color: transparent; }
 
+code {
+  background-color: #f3f3f3;
+}
+
 .com {
   color: #93a1a1; }
 

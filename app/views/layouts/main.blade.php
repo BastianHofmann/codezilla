@@ -23,11 +23,7 @@
 	<body>
 		<div class="top-nav">
 			<div class="container">
-				<ul class="navigation">
-					<li>
-						<a href="{{ URL::to('docs') }}" title="Overview for all documentations" class="active">Documentations</a>
-					</li>
-				</ul>
+				@include('partials.navigation')
 				<a href="{{ URL::to('/') }}" class="main-logo">Codezilla</a>
 			</div>
 		</div>
