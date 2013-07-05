@@ -33,8 +33,6 @@ class DocsController extends BaseController {
 		{
 			if ( ! File::isFile(storage_path() . $markdownFile . '.md'))
 			{
-				var_dump(storage_path() . $markdownFile . '.md');
-
 				App::abort(404, 'Page not found');
 			}
 
