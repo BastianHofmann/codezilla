@@ -87,3 +87,7 @@ Note that the code above allows you to use curly braces in a blade like manner f
 <h3 id="Client">Views</h3>
 
 To start of the application we simply initialize `AppView`, which will fire the `initialize` method.
+
+<h2 id="Install">Installation</h2>
+
+Here is how to install the application using MAMP. Unzip the package and then the application inside. Drop the pensum application in your Webroot. Boot up your servers. Navigate your browser to `http://localhost:8888/pensum/public/`. You should now see the pensum landing page. To connect the application to your MAMP database open `app/config/local/database.php` and fill in your credentials. Default for MAMP is `root` both as username and password.
