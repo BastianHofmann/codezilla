@@ -13,10 +13,9 @@
 
 Route::get('docs/{item?}', 'DocsController@index');
 
-Route::get('/', function() {
-
+Route::get('/', function()
+{
 	return Redirect::to('docs');
-
 });
 
 Route::resource('projects', 'ProjectsController');
@@ -27,12 +26,11 @@ Route::resource('projects', 'ProjectsController');
 |--------------------------------------------------------------------------
 */
 
-Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function() {
-
+Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function()
+{
 	Route::get('/', 'Controllers\Admin\AdminController@index');
 
 	Route::resource('projects', 'Controllers\Admin\ProjectsController');
 
 	Route::resource('users', 'Controllers\Admin\UsersController');
-
 });

@@ -55,6 +55,20 @@ App::error(function(Exception $exception, $code)
 
 /*
 |--------------------------------------------------------------------------
+| Application Fatal Error Handler
+|--------------------------------------------------------------------------
+*/
+
+App::error(function($exception)
+{
+	Mail::send('emails.error', compact('exception'), function($message) use ($exception)
+	{
+		$message->to('bastianhofmann@me.com')->subject('Codezilla Error - ' . $exception->getStatusCode());
+	});
+});
+
+/*
+|--------------------------------------------------------------------------
 | Maintenance Mode Handler
 |--------------------------------------------------------------------------
 |
