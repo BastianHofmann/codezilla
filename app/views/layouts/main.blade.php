@@ -46,7 +46,5 @@
 		{{ HTML::script('js/scripts.min.js') }}
 		{{ HTML::script('highlighter/prettify.js') }}
 		<script>prettyPrint();</script>
-		<script type="text/javascript" src="//use.typekit.net/tlp5wyh.js"></script>
-		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	</body>
 </html

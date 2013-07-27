@@ -27,10 +27,12 @@ Route::resource('projects', 'ProjectsController');
 |--------------------------------------------------------------------------
 */
 
-Route::group(array('prefix' => 'admin'), function() {
+Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function() {
 
 	Route::get('/', 'Controllers\Admin\AdminController@index');
 
 	Route::resource('projects', 'Controllers\Admin\ProjectsController');
+
+	Route::resource('users', 'Controllers\Admin\UsersController');
 
 });

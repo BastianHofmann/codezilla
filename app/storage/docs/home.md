@@ -33,5 +33,3 @@ Tickets will be processed and answered as soon as possible and bug fixes or new 
 Updates and changelogs are ready for download over at our [UpdateCenter](http://codezilla.help/updates "Update Center") (currently under development).
 
 After handing your purchase code, all resent updates are available to your. Along with some helpful information on how to install them.
-
-    <hello>

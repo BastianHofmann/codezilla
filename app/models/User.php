@@ -13,6 +13,18 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	protected $table = 'users';
 
 	/**
+	 * The rules for adding a user.
+	 *
+	 * @var array
+	 */
+	public static $rules = array(
+		'name' => 'required',
+		'screen_name' => 'required',
+		'email' => 'required',
+		'password' => 'required'
+	);
+
+	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
@@ -47,6 +59,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function getReminderEmail()
 	{
 		return $this->email;
+	}
+
+	/**
+	 * Check if the user is admin by checking the status.
+	 *
+	 * @return bool
+	 */
+	public function isAdmin()
+	{
+		return ($this->status == 2);
 	}
 
 }
