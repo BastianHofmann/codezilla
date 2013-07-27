@@ -16,8 +16,6 @@ class DocsController extends BaseController {
 
 		if ( ! $item)
 		{
-			$comments = false;
-
 			$markdownFile = '/docs/home';
 
 			$title = 'Docs - Codezilla';
@@ -44,7 +42,7 @@ class DocsController extends BaseController {
 			}
 		}
 
-		// Cache::put(str_replace('/', '_', $markdownFile), $content, 60);
+		Cache::put(str_replace('/', '_', $markdownFile), $content, 60);
 
 		// Add prettyprint classes to pre tags
 		$content = str_replace('<pre>', '<pre class="prettyprint php">', $content);

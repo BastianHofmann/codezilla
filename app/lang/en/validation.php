@@ -49,6 +49,7 @@ return array(
 		"string"  => "The :attribute must be at least :min characters.",
 	),
 	"not_in"           => "The selected :attribute is invalid.",
+	"not_match"        => "The :attribute must not match :value.",
 	"numeric"          => "The :attribute must be a number.",
 	"regex"            => "The :attribute format is invalid.",
 	"required"         => "The :attribute field is required.",

@@ -11,6 +11,11 @@
 		</li>
 
 		<li>
+			{{ Form::label('slug', 'Slug:') }}
+			{{ Form::text('slug') }}
+		</li>
+
+		<li>
 			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
 			{{ link_to_route('admin.projects.show', 'Cancel', $project->id, array('class' => 'btn')) }}
 		</li>

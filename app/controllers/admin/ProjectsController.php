@@ -6,133 +6,136 @@ use View;
 use Input;
 use Validator;
 use Redirect;
+use Str;
 
 class ProjectsController extends BaseController {
 
-    /**
-     * Project Repository
-     *
-     * @var Project
-     */
-    protected $project;
+	/**
+	 * Project Repository
+	 *
+	 * @var Project
+	 */
+	protected $project;
 
-    public function __construct(Project $project)
-    {
-        $this->project = $project;
-    }
+	public function __construct(Project $project)
+	{
+		$this->project = $project;
+	}
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        $projects = $this->project->all();
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		$projects = $this->project->all();
 
-        return View::make('admin.projects.index', compact('projects'));
-    }
+		return View::make('admin.projects.index', compact('projects'));
+	}
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        return View::make('admin.projects.create');
-    }
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		return View::make('admin.projects.create');
+	}
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        $input = Input::all();
-        $validation = Validator::make($input, Project::$rules);
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		$input = Input::all();
+		$validation = Validator::make($input, Project::$rules);
 
-        if ($validation->passes())
-        {
-            $this->project->create($input);
+		if ($validation->passes())
+		{
+			$input['slug'] = Str::slug($input['title']);
 
-            return Redirect::route('admin.projects.index');
-        }
+			$this->project->create($input);
 
-        return Redirect::route('admin.projects.create')
-            ->withInput()
-            ->withErrors($validation)
-            ->with('message', 'There were validation errors.');
-    }
+			return Redirect::route('admin.projects.index');
+		}
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        $project = $this->project->findOrFail($id);
+		return Redirect::route('admin.projects.create')
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'There were validation errors.');
+	}
 
-        return View::make('admin.projects.show', compact('project'));
-    }
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		$project = $this->project->findOrFail($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        $project = $this->project->find($id);
+		return View::make('admin.projects.show', compact('project'));
+	}
 
-        if (is_null($project))
-        {
-            return Redirect::route('projects.index');
-        }
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		$project = $this->project->find($id);
 
-        return View::make('admin.projects.edit', compact('project'));
-    }
+		if (is_null($project))
+		{
+			return Redirect::route('projects.index');
+		}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        $input = array_except(Input::all(), '_method');
-        $validation = Validator::make($input, Project::$rules);
+		return View::make('admin.projects.edit', compact('project'));
+	}
 
-        if ($validation->passes())
-        {
-            $project = $this->project->find($id);
-            $project->update($input);
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		$input = array_except(Input::all(), '_method');
+		$validation = Validator::make($input, Project::$rules);
 
-            return Redirect::route('admin.projects.show', $id);
-        }
+		if ($validation->passes())
+		{
+			$project = $this->project->find($id);
+			$project->update($input);
 
-        return Redirect::route('admin.projects.edit', $id)
-            ->withInput()
-            ->withErrors($validation)
-            ->with('message', 'There were validation errors.');
-    }
+			return Redirect::route('admin.projects.show', $id);
+		}
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        $this->project->find($id)->delete();
+		return Redirect::route('admin.projects.edit', $id)
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'There were validation errors.');
+	}
 
-        return Redirect::route('admin.projects.index');
-    }
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		$this->project->find($id)->delete();
+
+		return Redirect::route('admin.projects.index');
+	}
 
 }

@@ -29,6 +29,8 @@ Route::resource('projects', 'ProjectsController');
 
 Route::group(array('prefix' => 'admin'), function() {
 
+	Route::get('/', 'Controllers\Admin\AdminController@index');
+
 	Route::resource('projects', 'Controllers\Admin\ProjectsController');
 
 });

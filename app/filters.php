@@ -78,3 +78,15 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/*
+|--------------------------------------------------------------------------
+| Costum Validator Rules
+|--------------------------------------------------------------------------
+*/
+
+Validator::extend('not_match', function($attribute, $value, $parameters)
+{
+	return $value != $parameters[0];
+});
+

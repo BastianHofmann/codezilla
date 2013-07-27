@@ -7,7 +7,7 @@
 		<ul class="projects">
 		@foreach($projects as $project)
 			<li>
-				<a href="{{ URL::to('projects/' . $project->id) }}">{{{ $project->title }}}</a>
+				<a href="{{ URL::to('projects/' . $project->slug) }}">{{{ $project->title }}}</a>
 			</li>
 		@endforeach
 		</ul>

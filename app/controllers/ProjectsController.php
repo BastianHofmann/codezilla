@@ -1,5 +1,7 @@
 <?php
 
+use dflydev\markdown\MarkdownParser;
+
 class ProjectsController extends BaseController {
 
 	/**
@@ -17,26 +19,6 @@ class ProjectsController extends BaseController {
 	}
 
 	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-	/**
 	 * Display the specified resource.
 	 *
 	 * @param  int  $id
@@ -44,40 +26,51 @@ class ProjectsController extends BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		if (is_numeric($id))
+		{
+			$project = Project::find($id);
+		}
+		else
+		{
+			$project = Project::where('slug', $id)->first();
+		}
+
+		$title = $project->title . ' - Codezilla';
+
+		$markdownFile = 'descriptions/' . $project->slug;
+
+		if ( ! $content = Cache::get(str_replace('/', '_', $markdownFile)))
+		{
+			if ( ! File::isFile(storage_path() . '/' . $markdownFile . '.md'))
+			{
+				App::abort(404, 'Page not found');
+			}
+
+			$markdownParser = new MarkdownParser();
+
+			if ( ! $content = $markdownParser->transformMarkdown(File::get(storage_path() . '/' . $markdownFile . '.md')))
+			{
+				App::abort(500, 'Internal server error');
+			}
+		}
+
+		Cache::put(str_replace('/', '_', $markdownFile), $content, 60);
+
+		// Add prettyprint classes to pre tags
+		$content = str_replace('<pre>', '<pre class="prettyprint php">', $content);
+
+		return View::make('projects.show', compact('title', 'projects', 'content'));
 	}
 
 	/**
-	 * Show the form for editing the specified resource.
+	 * Handle missing methods with 404.
 	 *
-	 * @param  int  $id
+	 * @param  array  $parameters
 	 * @return Response
 	 */
-	public function edit($id)
+	public function missingMethod($parameters)
 	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
+		App::abort(404);
 	}
 
 }
