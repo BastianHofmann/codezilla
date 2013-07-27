@@ -7,6 +7,7 @@ use Input;
 use Validator;
 use Redirect;
 use Str;
+use File;
 
 class ProjectsController extends BaseController {
 
@@ -57,6 +58,16 @@ class ProjectsController extends BaseController {
 		if ($validation->passes())
 		{
 			$input['slug'] = Str::slug($input['title']);
+
+			$prices = @file_get_contents('http://marketplace.envato.com/api/edge/item-prices:5085356.json');
+
+			$prices = str_replace('item-prices', 'item_prices', $prices);
+
+			$prices = json_decode($prices);
+			
+			$input['price_regular'] = $prices->item_prices[0]->price;
+
+			$input['price_extended'] = $prices->item_prices[1]->price;
 
 			$this->project->create($input);
 

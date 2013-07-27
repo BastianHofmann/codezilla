@@ -11,6 +11,9 @@
 		<thead>
 			<tr>
 				<th>Title</th>
+				<th>Envato ID</th>
+				<th>Price Regular</th>
+				<th>Price Extended</th>
 			</tr>
 		</thead>
 
@@ -18,6 +21,9 @@
 			@foreach ($projects as $project)
 				<tr>
 					<td>{{{ $project->title }}}</td>
+					<td>{{{ $project->envato_id }}}</td>
+					<td>{{{ $project->price_regular }}}</td>
+					<td>{{{ $project->price_extended }}}</td>
 					<td>{{ link_to_route('admin.projects.edit', 'Edit', array($project->id), array('class' => 'btn btn-info')) }}</td>
 					<td>
 						{{ Form::open(array('method' => 'DELETE', 'route' => array('admin.projects.destroy', $project->id))) }}

@@ -16,6 +16,11 @@
 		</li>
 
 		<li>
+			{{ Form::label('envato_id', 'Envato ID:') }}
+			{{ Form::text('envato_id') }}
+		</li>
+
+		<li>
 			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
 			{{ link_to_route('admin.projects.show', 'Cancel', $project->id, array('class' => 'btn')) }}
 		</li>

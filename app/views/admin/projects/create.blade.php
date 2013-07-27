@@ -12,6 +12,11 @@
 		</li>
 
 		<li>
+			{{ Form::label('envato_id', 'Envato ID:') }}
+			{{ Form::text('envato_id') }}
+		</li>
+
+		<li>
 			{{ Form::submit('Submit', array('class' => 'btn')) }}
 		</li>
 	</ul>
