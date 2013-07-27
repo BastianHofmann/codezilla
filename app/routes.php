@@ -13,12 +13,22 @@
 
 Route::get('docs/{item?}', 'DocsController@index');
 
-Route::get('projects', 'ProjectsController@index');
-
-Route::get('projects/{item}', 'ProjectsController@show');
-
 Route::get('/', function() {
 
 	return Redirect::to('docs');
+
+});
+
+Route::resource('projects', 'ProjectsController');
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::group(array('prefix' => 'admin'), function() {
+
+	Route::resource('projects', 'Controllers\Admin\ProjectsController');
 
 });

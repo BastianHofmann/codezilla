@@ -3,28 +3,81 @@
 class ProjectsController extends BaseController {
 
 	/**
-	 * Show the complete collection
+	 * Display a listing of the resource.
 	 *
-	 * @return View
+	 * @return Response
 	 */
 	public function index()
 	{
 		$title = 'Projects - Codezilla';
 
-		return View::make('main.projects.index', compact('title'));
+		$projects = Project::all();
+
+		return View::make('projects.index', compact('title', 'projects'));
 	}
 
 	/**
-	 * Show a specific project
+	 * Show the form for creating a new resource.
 	 *
-	 * @param  string  $item
-	 * @return View
+	 * @return Response
 	 */
-	public function show($item)
+	public function create()
 	{
-		$title = ucfirst($item) . ' - Codezilla';
+		//
+	}
 
-		return View::make('main.projects.show', compact('title'));
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		//
+	}
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		//
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		//
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		//
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		//
 	}
 
 }

@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'fetch' => PDO::FETCH_CLASS,
+	// 'fetch' => PDO::FETCH_CLASS,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => isset($_SERVER['DB1_HOST']) ? $_SERVER['DB1_HOST'] : 'localhost',
-			'database'  => isset($_SERVER['DB1_NAME']) ? $_SERVER['DB1_NAME'] : 'codezilla',
-			'username'  => isset($_SERVER['DB1_USER']) ? $_SERVER['DB1_USER'] : 'root',
-			'password'  => isset($_SERVER['DB1_PASS']) ? $_SERVER['DB1_PASS'] : '',
+			'host'      => 'localhost',
+			'database'  => 'codezilla',
+			'username'  => 'root',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
@@ -96,7 +96,7 @@ return array(
 	|
 	*/
 
-	'migrations' => 'migrations',
+	// 'migrations' => 'migrations',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -109,16 +109,16 @@ return array(
 	|
 	*/
 
-	'redis' => array(
+	// 'redis' => array(
 
-		'cluster' => true,
+	// 	'cluster' => true,
 
-		'default' => array(
-			'host'     => '127.0.0.1',
-			'port'     => 6379,
-			'database' => 0,
-		),
+	// 	'default' => array(
+	// 		'host'     => '127.0.0.1',
+	// 		'port'     => 6379,
+	// 		'database' => 0,
+	// 	),
 
-	),
+	// ),
 
 );
