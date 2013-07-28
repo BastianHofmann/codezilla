@@ -95,6 +95,11 @@ class AuthController extends BaseController {
 		{
 			$input['password'] = Hash::make($password);
 
+			if (User::all()->count() == 1)
+			{
+				$input['status'] = 2;
+			}
+
 			$user = User::create($input);
 
 			Auth::loginUsingId($user->id);

@@ -7,6 +7,7 @@ use Input;
 use Validator;
 use Redirect;
 use Str;
+use Auth;
 
 class AdminController extends BaseController {
 
