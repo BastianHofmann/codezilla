@@ -95,7 +95,11 @@ class AuthController extends BaseController {
 		{
 			$input['password'] = Hash::make($password);
 
-			if (User::all()->count() == 1)
+			var_dump(User::all()->count());
+
+			return '';
+
+			if (User::all()->count() == 0)
 			{
 				$input['status'] = 2;
 			}
