@@ -27,7 +27,7 @@ class DocsController extends BaseController {
 			$markdownFile = rtrim($file, '/');
 		}
 
-		if ( ! $content = Cache::get(str_replace('/', '_', $markdownFile)))
+		if ( ! $content = Cache::get(str_replace('/', '_', $markdownFile)) or ! $navigation = Cache::get(str_replace('/', '_', $markdownFile . '_nav')))
 		{
 			if ( ! File::isFile(storage_path() . $markdownFile . '.md'))
 			{
@@ -40,14 +40,24 @@ class DocsController extends BaseController {
 			{
 				App::abort(500, 'Internal server error');
 			}
+
+			$navigation = $markdownParser->transformMarkdown(File::get(storage_path() . '/docs/nav.md'));
+
+			$navigation = str_replace('doc_url', URL::to('docs'), $navigation);
+
+			$navigation = str_replace('<p>', '', $navigation);
+
+			$navigation = str_replace('</p>', '', $navigation);
 		}
+
+		Cache::put(str_replace('/', '_', $markdownFile . '_nav'), $navigation, 60);
 
 		Cache::put(str_replace('/', '_', $markdownFile), $content, 60);
 
 		// Add prettyprint classes to pre tags
 		$content = str_replace('<pre>', '<pre class="prettyprint php">', $content);
 
-		return View::make('main.doc', compact('title', 'content'));
+		return View::make('main.doc', compact('title', 'content', 'navigation'));
 	}
 
 }
