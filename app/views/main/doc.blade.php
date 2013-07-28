@@ -1,9 +1,5 @@
 @extends('layouts.main')
 
-@section('head')
-	{{ HTML::style('css/documentation.css') }}
-@stop
-
 @section('main')
 	<div class="sidebar">
 		<ul class="topic-navigation">
