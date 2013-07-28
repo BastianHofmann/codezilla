@@ -28,7 +28,7 @@ $app->redirectIfTrailingSlash();
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('localhost'),
+	'local' => array('localhost', 'Bastians-iMac.local'),
 	'production' => array('thick-tasia'),
 
 ));

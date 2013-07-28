@@ -20,6 +20,21 @@ Route::get('/', function()
 
 Route::resource('projects', 'ProjectsController');
 
+Route::get('login', 'AuthController@login');
+
+Route::post('login', 'AuthController@attempt');
+
+Route::get('logout', function()
+{
+	Auth::logout();
+
+	return Redirect::to('login');
+});
+
+Route::get('register', 'AuthController@register');
+
+Route::post('register', 'AuthController@store');
+
 /*
 |--------------------------------------------------------------------------
 | Admin Routes

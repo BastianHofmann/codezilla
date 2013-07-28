@@ -59,11 +59,11 @@ App::error(function(Exception $exception, $code)
 |--------------------------------------------------------------------------
 */
 
-App::error(function($exception)
+App::error(function($exception, $code)
 {
-	Mail::send('emails.error', compact('exception'), function($message) use ($exception)
+	Mail::send('emails.error', compact('exception', 'code'), function($message) use ($exception, $code)
 	{
-		$message->to('bastianhofmann@me.com')->subject('Codezilla Error - ' . $exception->getStatusCode());
+		$message->to('bastianhofmann@me.com')->subject('Codezilla Error - ' . $code);
 	});
 });
 

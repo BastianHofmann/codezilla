@@ -1,1 +1,1 @@
-{{ $exception->getStatusCode() }} - {{ Request::url() }} @if(Auth::check()) - {{ Auth::user()->id }} @endif
+{{ $code }} - {{ Request::url() }} @if(Auth::check()) - {{ Auth::user()->id }} @endif

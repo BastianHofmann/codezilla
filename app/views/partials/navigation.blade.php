@@ -5,7 +5,4 @@
 	<li>
 		<a href="{{ URL::to('projects') }}" title="Overview of all projects" class="@if(Request::is('projects*')) active @endif">Projects</a>
 	</li>
-	<li>
-		<a href="{{ URL::to('issues') }}" title="File an issue" class="@if(Request::is('issues*')) active @endif">Issues</a>
-	</li>
 </ul>
